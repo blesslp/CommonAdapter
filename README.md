@@ -8,6 +8,20 @@
 3.默认多视图以数据源的Class为区分,提供自定义转换接口来定制符合你的所有情况.
 ```
 
+```
+下载玩玩
+:project build.gradle
+allprojects {
+		repositories {
+			maven { url 'https://jitpack.io' }
+		}
+	}
+  
+:app build.gradle
+dependencies {
+	        compile 'com.github.blesslp:CommonAdapter:beta-0.01'
+	}
+```
 
 演示:
 #界面分三种viewType,每种type对应一个相应的Adapter,这个adapter就是该项目核心要实现的目标
