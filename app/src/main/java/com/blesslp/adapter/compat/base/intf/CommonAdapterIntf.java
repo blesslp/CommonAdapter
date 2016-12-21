@@ -16,6 +16,8 @@ public interface CommonAdapterIntf {
 
     void setDataSource(List dataSource, boolean clearAll);
 
+    <T> List<T> getDataSource();
+
     void insertData(Object dat, int position);
 
     void addData(Object dat);

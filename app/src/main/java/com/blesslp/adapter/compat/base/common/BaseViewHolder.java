@@ -1,5 +1,6 @@
 package com.blesslp.adapter.compat.base.common;
 
+import android.content.Context;
 import android.view.View;
 import android.widget.AdapterView;
 
@@ -23,6 +24,11 @@ public class BaseViewHolder implements CommonViewHolderIntf {
     @Override
     public View getConvertView() {
         return convertView;
+    }
+
+    @Override
+    public Context getContext() {
+        return convertView.getContext();
     }
 
     @Override

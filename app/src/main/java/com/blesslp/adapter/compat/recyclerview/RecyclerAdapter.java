@@ -47,13 +47,17 @@ public class RecyclerAdapter extends RecyclerView.Adapter<CommonRecyclerViewHold
         notifyDataSetChanged();
     }
 
+    @Override
+    public <T> List<T> getDataSource() {
+        return dataSource;
+    }
+
     private RecyclerAdapter(){}
 
     private RecyclerAdapter(HashMap<Object,AdapterItem> typePool, ArrayList<Object> types) {
         this.typePool = typePool;
         this.types = types;
     }
-
 
 
     @Override
@@ -97,6 +101,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<CommonRecyclerViewHold
         AdapterItem adapterItem = getAdapterItem(position);
         BaseViewHolder viewHolder = holder.getViewHolder();
         viewHolder.setCurrentPosition(position);
+        adapterItem.setDataSource(this.getDataSource());
         adapterItem.onBindViewHolder(viewHolder,getItem(position),position);
     }
 

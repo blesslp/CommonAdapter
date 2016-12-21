@@ -73,6 +73,11 @@ public class ListViewAdapter extends BaseAdapter implements CommonAdapterIntf{
     }
 
     @Override
+    public <T> List<T> getDataSource() {
+        return dataSource;
+    }
+
+    @Override
     public void insertData(Object dat, int position) {
         this.dataSource.add(position,dat);
         notifyDataSetChanged();
@@ -114,7 +119,7 @@ public class ListViewAdapter extends BaseAdapter implements CommonAdapterIntf{
     public View getView(int position, View convertView, ViewGroup viewGroup) {
         AdapterItem adapterItem = getAdapterItem(position);
         adapterItem.setContext(viewGroup.getContext());
-
+        adapterItem.setDataSource(this.getDataSource());
 
         BaseViewHolder viewHolder = null;
         if (convertView == null) {
